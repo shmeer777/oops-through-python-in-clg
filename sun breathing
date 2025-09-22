@@ -1,0 +1,22 @@
+class Neoratha:
+    def __init__(self, name, age, salary):
+        self.name = name
+        self.age = age
+        self.salary = salary
+
+class NeorathaLevel1(Neoratha):
+     def __init__(self, name, age, salary):
+       self.name = name
+       self.age = age
+       self.salary = salary
+class NeorathaLevel2(NeorathaLevel1):
+    def __init__(self, name, age, salary):
+     self.name = name
+     self.age = age
+     self.salary = salary
+
+emp1 = Neoratha('Shameer', 20, 10000000000000)
+emp2 = Neoratha('Srinadh', 18, 100000000000)
+
+print(emp1.age)
+print(emp2.age)
