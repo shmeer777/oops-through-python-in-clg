@@ -1,0 +1,42 @@
+from tkinter import *
+from tkinter import messagebox
+import pyqrcode
+
+# Create main window
+ws = Tk()
+ws.title("QR Code Generator")
+ws.config(bg="yellow")
+
+# Input field
+user_input = StringVar()
+entry = Entry(ws, textvariable=user_input, width=40)
+entry.pack(padx=10, pady=10)
+
+# Display labels
+img_lbl = Label(ws, bg='green')
+img_lbl.pack()
+
+output = Label(ws, text="", bg='pink')
+output.pack(pady=10)
+
+# Function to generate QR code
+def generate_QR():
+    if len(user_input.get()) > 0:
+        global qr, img
+        qr = pyqrcode.create(user_input.get())
+        img = BitmapImage(data=qr.xbm(scale=8))
+        display_code()
+    else:
+        messagebox.showwarning('Warning', 'All fields are required!')
+
+# Function to display QR code
+def display_code():
+    img_lbl.config(image=img)
+    output.config(text="QR Code of: " + user_input.get())
+
+# Button to trigger QR generation
+button = Button(ws, text="Generate QR Code", width=20, command=generate_QR)
+button.pack(pady=20)
+
+# Run the application
+ws.mainloop()
