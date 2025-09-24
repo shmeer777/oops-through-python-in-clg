@@ -1,0 +1,23 @@
+class ratha:
+    def __init__(self, name, age, id, salary):
+        self.name = name
+        self.age = age
+        self.salary = salary
+        self.id = id
+
+    def earn(self):
+        pass
+
+class neoratha1(ratha):
+    def earn(self):
+        print("no money")
+
+class neoratha2(ratha):
+    def earn(self):
+        print("has money")
+
+c = neoratha1
+c.earn(ratha)
+
+d = neoratha2
+d.earn(ratha)
